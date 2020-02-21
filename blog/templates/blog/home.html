@@ -1,0 +1,30 @@
+{% extends "blog/base.html" %}
+{% block content %}
+    {% comment %}
+    {% for post in posts %}
+    {% endfor %}
+    {% endcomment %}
+  <!----  <article class="media content-section">
+            <div class="media-body">
+              <div class="article-metadata">
+                <a class="mr-2" href="#">{{ post.author }}</a>
+                <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+              </div>
+              <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+              <p class="article-content">{{ post.content }}</p>
+            </div>
+          </article>   -->
+          <h2>IMDb API Dev Build</h2>
+          <article class="media content-section">
+            <div class="media-body">
+              <div class="article-metadata">
+               <!---- <a class="mr-2" href='https://www.imdb.com/title/{{ imdbID }}'>{{ imdbID }}</a> -->
+                <small class="text-muted">Type: {{ Type  }}</small>
+              </div>
+              <h2><a class="article-title" href="https://www.imdb.com/title/{{ imdbID }}">{{ Title }}</a></h2>
+              <p class="article-content">{{ Plot }}</p>
+              <small class="text-muted">IMDb Rating: {{ imdbRating }}, Genre: {{ Genre }}</small>
+            </div>
+          </article>   
+  
+{% endblock content %}
