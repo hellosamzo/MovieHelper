@@ -38,5 +38,10 @@ def cinemafinder(request):
         'api_key': ''
     })
 
+def latest(request):
+    return render(request, 'blog/latest.html', {
+
+    })
+
 #def spotify(request):
  #   return render(request, 'blog/')
