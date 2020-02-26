@@ -5,7 +5,7 @@ import requests, smtplib
 def home(request):
     # defining the api-endpoint
     serviceurl = 'http://www.omdbapi.com/?'
-    omdbapi = ""
+    omdbapi = "a37cd09d"
     apikey = '&apikey='+omdbapi
     s='The Office'
     params = "t=%27"+s+"%27"
