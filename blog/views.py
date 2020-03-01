@@ -3,6 +3,8 @@ from .models import Post
 import requests, smtplib
 
 def home(request):
+    if request.method == 'POST':
+        print(request.POST)
     # defining the api-endpoint
     serviceurl = 'http://www.omdbapi.com/?'
     omdbapi = "a37cd09d"
