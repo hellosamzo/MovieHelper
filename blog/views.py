@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .models import Post
 import requests, smtplib
+import bs4 as bs
+from urllib import request as req
 
 def home(request):
     if request.method == 'POST':
@@ -41,6 +43,12 @@ def cinemafinder(request):
     })
 
 def latest(request):
+    url = "https://imdb.com"
+    html = req.urlopen(url).read().decode('utf8')
+    html[:60]
+    soup = bs.BeautifulSoup(html, 'html.parser')
+    title = soup.find('title')
+    #print(title.string)
     return render(request, 'blog/latest.html', {
 
     })
