@@ -16,11 +16,9 @@
           </article>   -->
           <h2>Home</h2>
           <div class="form-group">
-            <form method="POST">
-              {% csrf_token %}
-          <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search for a movie" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <form type="get" action="." style="margin: 0">
+              <input  id="search_box" type="text" name="search_box"  placeholder="Search for a movie..." >
+              <button id="search_submit" type="submit" >Submit</button>
           </form>
         </div>
           <article class="media content-section">

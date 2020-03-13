@@ -5,13 +5,13 @@ import bs4 as bs
 from urllib import request as req
 
 def home(request):
-    if request.method == 'POST':
-        print(request.POST)
-    # defining the api-endpoint
+    if request.method == 'GET':
+        search_query = request.GET.get('search_box', None)
+
     serviceurl = 'http://www.omdbapi.com/?'
     omdbapi = "a37cd09d"
     apikey = '&apikey='+omdbapi
-    s='The Office'
+    s = search_query
     params = "t=%27"+s+"%27"
     API_ENDPOINT = serviceurl+params+apikey
     #print(API_ENDPOINT)
