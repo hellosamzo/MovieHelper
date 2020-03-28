@@ -58,5 +58,16 @@ def latest(request):
 
     })
 
+def announcements(request):
+    return render(request, 'blog/announcements.html', {
+
+    })
+
+def calendars(request):
+    return render(request, 'blog/calendars.html', {
+
+    })
+
+
 #def spotify(request):
  #   return render(request, 'blog/')
