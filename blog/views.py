@@ -68,6 +68,11 @@ def calendars(request):
 
     })
 
+def dev(request):
+    return render(request, 'blog/dev.html', {
+
+    })
+
 
 #def spotify(request):
  #   return render(request, 'blog/')

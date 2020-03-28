@@ -7,5 +7,6 @@ urlpatterns = [
     path('cinemafinder/', views.cinemafinder, name='blog-cf'),
     path('latest/', views.latest, name='latest'),
     path('announcements/', views.announcements, name='announcements'),
-    path('calendars/', views.calendars, name='calendars')
+    path('calendars/', views.calendars, name='calendars'),
+    path('dev/', views.dev, name='blog-dev')
 ]
