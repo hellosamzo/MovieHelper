@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Post
-import requests, smtplib
+import requests, smtplib, ssl
 import bs4 as bs
 from urllib import request as req
 
@@ -32,9 +32,14 @@ def home(request):
             return render(request, 'blog/home.html')
 
 def about(request):
-    return render(request, 'blog/about.html', {
-            'test' : 'Testing123'       
-            })
+        port = 465  # For SSL       
+        # Create a secure SSL context
+        context = ssl.create_default_context()
+
+        # do email stuff here
+        return render(request, 'blog/about.html', {
+
+        })
 
 def cinemafinder(request):
         response = requests.get('https://ipapi.co/8.8.8.8/json/')
@@ -70,7 +75,7 @@ def calendars(request):
 
 def dev(request):
     return render(request, 'blog/dev.html', {
-
+        
     })
 
 
