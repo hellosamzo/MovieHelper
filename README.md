@@ -1,6 +1,8 @@
-<p align="center"><img width=60% src="https://github.com/hellosamzo/MovieHelper/blob/master/media/logo.png"></p>
+# MovieHelper
 
-# Movie Helper
-Django Web App
-#
+MovieHelper is a Python Django web app which provides information and notifications about the latest movies.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![GitHub issues](https://img.shields.io/github/issues/hellosamzo/moviehelper) ![GitHub last commit](https://img.shields.io/github/last-commit/hellosamzo/moviehelper)
+
+## Roadmap
