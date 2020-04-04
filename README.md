@@ -1,4 +1,4 @@
-<p align="center"><img width=60% src="https://github.com/hellosamzo/../logo.png"></p>
+<p align="center"><img width=60% src="https://github.com/hellosamzo/MovieHelper/blob/master/media/logo.png"></p>
 
 # Movie Helper
 Django Web App
