@@ -53,14 +53,21 @@ def cinemafinder(request):
     })
 
 def latest(request):
+    # get latest film titles using bs4
     url = "https://www.imdb.com/movies-in-theaters/"
     html = req.urlopen(url).read().decode('utf8')
     html[:60]
+
+    # array which will hold titles
+    latest_titles = []
+
+    # fetch titles
     soup = bs.BeautifulSoup(html, 'html.parser')
     for link in soup.find_all("a", href=lambda href: href and href.startswith("/title/tt")):
-        print(link.get('title'))
-    return render(request, 'blog/latest.html', {
+        latest_titles.append(link.get('title'))
 
+    return render(request, 'blog/latest.html', {
+        'titles': latest_titles,
     })
 
 def announcements(request):

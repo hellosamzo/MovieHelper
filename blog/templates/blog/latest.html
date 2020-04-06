@@ -1,6 +1,9 @@
 {% extends "blog/base.html" %}
 {% block content %}
     <h2>Latest Movies</h2>
+    {% for title in titles %}
+      <p>{{ title }}</p>
+    {% endfor %}
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
