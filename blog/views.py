@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Post
-import requests, smtplib, ssl
+import requests, smtplib, ssl, datetime
 import bs4 as bs
 from urllib import request as req
 
@@ -54,10 +54,17 @@ def cinemafinder(request):
 
 def latest(request):
     # get the current month
+    dt = datetime.datetime.today()
+    print(dt.month)
+    month = dt.month
 
-    
+    # get correct url based on the month
+    if month > 9:
+        url = "https://www.imdb.com/movies-coming-soon/2020-" + str(month) + "/?ref_=cs_dt_nx"
+    else:
+        url = "https://www.imdb.com/movies-coming-soon/2020-0" + str(month) + "/?ref_=cs_dt_nx"
+
     # get latest film titles using bs4
-    url = "https://www.imdb.com/movies-coming-soon/2020-05/?ref_=cs_dt_nx"
     html = req.urlopen(url).read().decode('utf8')
     html[:60]
 
