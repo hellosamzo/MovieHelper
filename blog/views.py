@@ -74,7 +74,11 @@ def latest(request):
     # fetch titles
     soup = bs.BeautifulSoup(html, 'html.parser')
     for link in soup.find_all("a", href=lambda href: href and href.startswith("/title/tt")):
-        latest_titles.append(link.get('title'))
+        
+        title = link.get('title')
+
+        if title is not None:
+            latest_titles.append(link.get('title'))
 
     return render(request, 'blog/latest.html', {
         'titles': latest_titles,
