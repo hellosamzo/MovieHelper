@@ -53,8 +53,11 @@ def cinemafinder(request):
     })
 
 def latest(request):
+    # get the current month
+
+    
     # get latest film titles using bs4
-    url = "https://www.imdb.com/movies-in-theaters/"
+    url = "https://www.imdb.com/movies-coming-soon/2020-05/?ref_=cs_dt_nx"
     html = req.urlopen(url).read().decode('utf8')
     html[:60]
 
