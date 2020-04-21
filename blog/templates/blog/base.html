@@ -28,7 +28,6 @@
                       <div class="navbar-nav mr-auto">
                         <a class="nav-item nav-link" href="{% url 'blog-home' %}">Home</a>
                         <a class="nav-item nav-link" href="{% url 'blog-about' %}">Email Notifications</a>
-                        <a class="nav-item nav-link" href="{% url 'blog-dev' %}">Development Updates</a>
                       </div>
                       <!-- Navbar Right Side -->
                       <div class="navbar-nav">
@@ -62,9 +61,10 @@
                           <p class='text-muted'>Additional information for upcoming films
                             <ul class="list-group">
                               <li class="list-group-item list-group-item-light"><a href="{% url 'latest' %}">Latest Movies</a></li>
-                              <li class="list-group-item list-group-item-light"><a href="{% url 'announcements' %}">Movie Announcements</a></li>
+                             <!-- <li class="list-group-item list-group-item-light"><a href="{% url 'announcements' %}">Movie Announcements</a></li>
                               <li class="list-group-item list-group-item-light"><a href="{% url 'calendars' %}">Calendars</a></li>
-                              <li class="list-group-item list-group-item-light"><a href="{% url 'blog-cf' %}">Movie Showtimes</a></li>
+                              <li class="list-group-item list-group-item-light"><a href="{% url 'blog-cf' %}">Movie Showtimes</a></li> -->
+                              <li class="list-group-item list-group-item-light"><a href="{% url 'blog-dev' %}">Development Updates</a></li>
                             </ul>
                           </p>
                         </div>

@@ -57,6 +57,8 @@ def latest(request):
     dt = datetime.datetime.today()
     print(dt.month)
     month = dt.month
+    monthStr = dt.strftime("%B");
+    year = datetime.datetime.today().year
 
     # get correct url based on the month
     if month > 9:
@@ -80,8 +82,12 @@ def latest(request):
         if title is not None:
             latest_titles.append(link.get('title'))
 
+        # use api to get descriptions etc
+        
     return render(request, 'blog/latest.html', {
         'titles': latest_titles,
+        'month': monthStr,
+        'year': year
     })
 
 def announcements(request):
