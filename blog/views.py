@@ -32,14 +32,31 @@ def home(request):
             return render(request, 'blog/home.html')
 
 def about(request):
-        port = 465  # For SSL       
-        # Create a secure SSL context
-        context = ssl.create_default_context()
+    if request.method == 'GET': 
+        emailRecv = request.GET.get('email', None)
+        if emailRecv:
+            favCinema = "London Oval" #placeholder
+            genres = "Action" #placeholder
 
-        # do email stuff here
-        return render(request, 'blog/about.html', {
+            # do email stuff here
+            sender = 'todo'
+            receivers = emailRecv
+            message = """From: From Person <sender>
+                    To: To Person <receivers>
+                    Subject: Movie Helper Email Test
 
-        })
+                    This is a test email from Movie Helper.
+                    """
+            smtpObj = smtplib.SMTP()
+            smtpObj.starttls()
+            mailserver = smtpObj.SMTP('smtp.gmail.com',587)
+            mailserver.ehlo()
+            mailserver.login('moviehelpr838fhsu@gmail.com', 'mypassword')
+            mailserver.sendmail('moviehelpr838fhsu@gmail.com', receivers, message)
+            mailserver.quit()
+
+
+    return render(request, 'blog/about.html')
 
 def cinemafinder(request):
         response = requests.get('https://ipapi.co/8.8.8.8/json/')
