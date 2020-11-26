@@ -5,31 +5,34 @@ import bs4 as bs
 from urllib import request as req
 
 def home(request):
+    print('test');
     if request.method == 'GET':
         search_query = request.GET.get('search_box', None)
+        
         if search_query:
-            serviceurl = 'http://www.omdbapi.com/?'
-            omdbapi = "a37cd09d"
-            apikey = '&apikey='+omdbapi
             s = search_query
-            params = "t=%27"+s+"%27"
-            API_ENDPOINT = serviceurl+params+apikey
-            response = requests.get(API_ENDPOINT)
-            result = response.json()
-            response = result['Response']
-            if response == 'True':
-                return render(request, 'blog/home.html', {
-                'Title': result['Title'],
-                'imdbRating': result['imdbRating'],
-                'imdbID': result['imdbID'],
-                'Genre': result['Genre'],
-                'Plot': result['Plot'],
-                'Type': result['Type']   })
-            elif response == 'False':
-                return render(request, 'blog/home.html', {
-                'Title': 'Movie Not Found!'  })
         else:
-            return render(request, 'blog/home.html')
+            s = 'Godfather'
+        
+        serviceurl = 'http://www.omdbapi.com/?'
+        omdbapi = "a37cd09d"
+        apikey = '&apikey='+omdbapi
+        params = "t=%27"+s+"%27"
+        API_ENDPOINT = serviceurl+params+apikey
+        response = requests.get(API_ENDPOINT)
+        result = response.json()
+        response = result['Response']
+        if response == 'True':
+            return render(request, 'blog/home.html', {
+            'Title': result['Title'],
+            'imdbRating': result['imdbRating'],
+            'imdbID': result['imdbID'],
+            'Genre': result['Genre'],
+            'Plot': result['Plot'],
+            'Type': result['Type']   })
+        elif response == 'False':
+            return render(request, 'blog/home.html', {
+            'Title': 'Movie Not Found!'  })
 
 def about(request):
     if request.method == 'GET': 
