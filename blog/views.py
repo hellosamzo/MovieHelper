@@ -92,6 +92,8 @@ def latest(request):
 
     # array which will hold titles
     latest_titles = []
+    # array to hold descriptions
+    descs = []
 
     # fetch titles
     soup = bs.BeautifulSoup(html, 'html.parser')
@@ -101,13 +103,14 @@ def latest(request):
 
         if title is not None:
             latest_titles.append(link.get('title'))
-
-        # use api to get descriptions etc
+            descs.append(getMovieDesc(title[:-7]))
+        
         
     return render(request, 'blog/latest.html', {
         'titles': latest_titles,
         'month': monthStr,
-        'year': year
+        'year': year,
+        'descs': descs
     })
 
 def announcements(request):
@@ -124,6 +127,23 @@ def dev(request):
     return render(request, 'blog/dev.html', {
         
     })
+
+# probably make this just get everything 
+def getMovieDesc(title):
+    serviceurl = 'http://www.omdbapi.com/?'
+    omdbapi = "a37cd09d"
+    apikey = '&apikey='+omdbapi
+    params = "t=%27"+title+"%27"
+    API_ENDPOINT = serviceurl+params+apikey
+    response = requests.get(API_ENDPOINT)
+    result = response.json()
+    response = result['Response']
+    if response == 'True':
+        desc = result['Plot']
+        return desc
+    elif response == 'False':
+        return 'Movie Not Found!' 
+    
 
 
 #def spotify(request):
